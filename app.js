@@ -10,10 +10,10 @@ const userrouter = require ('./Router/Router.js')
  app.use(express.json())
  app.use(bodyparser.json())
  app.use(cors())
-
+console.log(process.env.DATABASE_URL)
  mongoose.connect(process.env.DATABASE_URL)
 .then(()=>{console.log("mongodb is connected")})
-.catch((err)=>{console.log("mongodb is not connected")}) 
+.catch((err)=>{console.log("mongodb is not connected",err)}) 
 
 
 app.get('/',(req,res)=>{
